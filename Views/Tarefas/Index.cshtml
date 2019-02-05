@@ -1,0 +1,39 @@
+@model List<Tarefa>
+@{
+    ViewData["Title"] = "Tarefas";
+}
+
+<h3>Tarefas</h3>
+
+@if(Model.Any()) 
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descrição</th>
+                <th>Data da Tarefa</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Tarefa tarefa in Model)
+            {
+                <tr>
+                    <td>@(tarefa.ID)</td>
+                    <td>@(tarefa.Descricao)</td>
+                    <td>@(tarefa.DataTarefa)</td>
+                    <td>
+                        <a asp-action="editar" asp-route-id="@tarefa.ID">Editar</a> | 
+                        <a asp-action="excluir" asp-route-id="@tarefa.ID">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+} 
+else 
+{
+    <h5>Não há nenhuma tarefa cadastrada!</h5>
+}
+<a asp-action="Criar">Criar nova tarefa</a>

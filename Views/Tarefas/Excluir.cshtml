@@ -1,0 +1,38 @@
+@model Tarefa
+@{
+    ViewData["Title"] = "Excluir Tarefa";
+}
+
+<h3>Você tem certeza que quer Excluir a Tarefa abaixo?</h3>
+
+<form asp-action="Excluir" asp-route-id="@Model.ID">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label asp-for="ID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <i>@(Model.ID)</i>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Descricao" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <i>@(Model.Descricao)</i>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="DataTarefa" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <i>@(Model.DataTarefa)</i>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-danger">Excluir Tarefa</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Voltar para a lista</a>
+</div>
